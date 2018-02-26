@@ -1,11 +1,10 @@
-package br.com.ladoleste.simpleredditclient.api
+package br.com.ladoleste.simpleredditclient.model
 
 import br.com.ladoleste.simpleredditclient.dto.Thing
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-
 
 /**
  *Created by Anderson on 08/12/2017.

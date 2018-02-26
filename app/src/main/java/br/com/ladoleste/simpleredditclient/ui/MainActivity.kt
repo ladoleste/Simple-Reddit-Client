@@ -17,6 +17,7 @@ import br.com.ladoleste.simpleredditclient.app.Category
 import br.com.ladoleste.simpleredditclient.app.NewsItem
 import br.com.ladoleste.simpleredditclient.app.Util.X.getErrorMessage
 import br.com.ladoleste.simpleredditclient.ui.adapter.NewsAdapter
+import br.com.ladoleste.simpleredditclient.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.inc_toolbar.*
 import timber.log.Timber
@@ -68,6 +69,11 @@ class MainActivity : AppCompatActivity(), ItemClick {
         })
 
         model.getNews()
+    }
+
+    override fun onDestroy() {
+        model.dispose()
+        super.onDestroy()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

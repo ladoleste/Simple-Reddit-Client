@@ -24,6 +24,7 @@ import br.com.ladoleste.simpleredditclient.app.toHtml
 import br.com.ladoleste.simpleredditclient.ui.adapter.CommentsAdapter
 import br.com.ladoleste.simpleredditclient.ui.adapter.getCommentsText
 import br.com.ladoleste.simpleredditclient.ui.customtabs.CustomTabsHelper
+import br.com.ladoleste.simpleredditclient.viewmodel.CommentsViewModel
 import kotlinx.android.synthetic.main.activity_comments.*
 import kotlinx.android.synthetic.main.inc_info.*
 import kotlinx.android.synthetic.main.inc_toolbar.*
@@ -33,7 +34,7 @@ class CommentsActivity : AppCompatActivity() {
     private lateinit var model: CommentsViewModel
     private lateinit var customTabsIntent: CustomTabsIntent
     private val customTabsHelper = CustomTabsHelper()
-    private var uri: Uri? = null
+    private lateinit var uri: Uri
     private var shareLink: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -157,5 +158,10 @@ class CommentsActivity : AppCompatActivity() {
         rv_comments.layoutManager = linearLayoutManager
         rv_comments.isNestedScrollingEnabled = false
         rv_comments
+    }
+
+    override fun onDestroy() {
+        model.dispose()
+        super.onDestroy()
     }
 }

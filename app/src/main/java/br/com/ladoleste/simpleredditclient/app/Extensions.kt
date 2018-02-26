@@ -1,5 +1,6 @@
 package br.com.ladoleste.simpleredditclient.app
 
+import android.app.Activity
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
@@ -16,7 +17,11 @@ fun ViewGroup.inflate(layoutId: Int): View {
 }
 
 fun ImageView.loadImage(imageUrl: String) {
-    Glide.with(context).load(imageUrl).apply(RequestOptions().placeholder(drawable)).into(this)
+    if (context is Activity) {
+        val act = context as Activity
+        if (!act.isFinishing && !act.isDestroyed)
+            Glide.with(act).load(imageUrl).apply(RequestOptions().placeholder(drawable)).into(this)
+    }
 }
 
 fun String.toHtml(): Spanned {

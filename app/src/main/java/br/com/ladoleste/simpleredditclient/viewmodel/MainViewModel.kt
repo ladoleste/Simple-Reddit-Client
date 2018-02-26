@@ -1,24 +1,22 @@
-package br.com.ladoleste.simpleredditclient.ui
+package br.com.ladoleste.simpleredditclient.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import br.com.ladoleste.simpleredditclient.api.Api
 import br.com.ladoleste.simpleredditclient.api.Retrofit
 import br.com.ladoleste.simpleredditclient.app.Category
 import br.com.ladoleste.simpleredditclient.app.NewsItem
+import br.com.ladoleste.simpleredditclient.model.Api
 import br.com.ladoleste.simpleredditclient.ui.adapter.AdapterConstants
 
 /**
  *Created by Anderson on 14/02/2018.
  */
-class MainViewModel(private val api: Api = Retrofit.getApi()) : ViewModel() {
+class MainViewModel(private val api: Api = Retrofit.getApi()) : BaseViewModel() {
 
     val items = MutableLiveData<List<NewsItem>>()
     val error = MutableLiveData<Throwable>()
     var category = Category.NEW
     var loadingEnabled = false
-
-    var lastAfter = ""
+    private var lastAfter = ""
 
     private val loadingItem = object : NewsItem {
         override val getType: Int
@@ -29,7 +27,8 @@ class MainViewModel(private val api: Api = Retrofit.getApi()) : ViewModel() {
         if (refresh) {
             lastAfter = ""
         }
-        api.getNews(category.toString().toLowerCase(), lastAfter)
+
+        cDispose.add(api.getNews(category.toString().toLowerCase(), lastAfter)
                 .subscribe({ x ->
                     lastAfter = x.dataHolderList.after ?: ""
                     val elements = x.dataHolderList.children.map { it.data.toNews() }
@@ -53,6 +52,6 @@ class MainViewModel(private val api: Api = Retrofit.getApi()) : ViewModel() {
                     items.postValue(list)
                 }, {
                     error.postValue(it)
-                })
+                }))
     }
 }

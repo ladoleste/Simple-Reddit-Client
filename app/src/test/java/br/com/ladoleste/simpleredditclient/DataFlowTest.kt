@@ -2,11 +2,11 @@ package br.com.ladoleste.simpleredditclient
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.ladoleste.simpleredditclient.Helpers.Companion.readFile
-import br.com.ladoleste.simpleredditclient.api.Api
 import br.com.ladoleste.simpleredditclient.app.Category
 import br.com.ladoleste.simpleredditclient.dto.News
 import br.com.ladoleste.simpleredditclient.dto.Thing
-import br.com.ladoleste.simpleredditclient.ui.MainViewModel
+import br.com.ladoleste.simpleredditclient.model.Api
+import br.com.ladoleste.simpleredditclient.viewmodel.MainViewModel
 import com.google.gson.Gson
 import io.reactivex.Single
 import org.junit.Assert.*
