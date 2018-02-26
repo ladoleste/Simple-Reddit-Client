@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">S.R.C.</string>
+    <string name="app_title">Simple Reddit Client</string>
+    <string name="none">none</string>
+    <string name="no_comments">No comments found</string>
+    <string name="retry">RETRY</string>
+    <string name="act_comments"><![CDATA[Details & Comments]]></string>
+    <string name="no_connection">No internet connection</string>
+    <string name="generic_error">There was an error, would you like to try again?</string>
+    <string name="share">Share</string>
+    <string name="open_article">Open Article</string>
+    <string name="hot">Hot</string>
+    <string name="new_">New</string>
+    <string name="top">Top</string>
+</resources>
