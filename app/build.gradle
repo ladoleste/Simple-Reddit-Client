@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -21,7 +22,6 @@ android {
             storePassword "123456"
             keyAlias "RedditSimpleClient"
             keyPassword "123456"
-            v2SigningEnabled false
         }
     }
     buildTypes {
@@ -59,7 +59,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.6.1'
     implementation 'com.android.support:customtabs:27.0.2'
     implementation 'com.github.bumptech.glide:glide:4.6.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    kapt 'com.github.bumptech.glide:compiler:4.6.1'
 
     implementation 'android.arch.lifecycle:extensions:1.1.0'
     implementation 'androidx.core:core-ktx:0.1'
