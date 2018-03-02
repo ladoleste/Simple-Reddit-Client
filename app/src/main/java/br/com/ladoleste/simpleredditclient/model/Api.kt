@@ -10,9 +10,9 @@ import retrofit2.http.Query
  *Created by Anderson on 08/12/2017.
  */
 interface Api {
-    @GET("/r/Android/{category}/.json?raw_json=1")
+    @GET("/r/AndroidDev/{category}/.json?raw_json=1")
     fun getNews(@Path("category") category: String, @Query("after") after: String = "", @Query("limit") limit: Int = 20): Single<Thing>
 
-    @GET("/r/Android/comments/{id}/.json?raw_json=1")
+    @GET("/r/AndroidDev/comments/{id}/.json?raw_json=1")
     fun getComments(@Path("id") id: String = ""): Single<List<Thing>>
 }

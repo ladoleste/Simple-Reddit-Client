@@ -12,9 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import java.util.*
 
-fun ViewGroup.inflate(layoutId: Int): View {
-    return LayoutInflater.from(context).inflate(layoutId, this, false)
-}
+fun ViewGroup.inflate(layoutId: Int): View = LayoutInflater.from(context).inflate(layoutId, this, false)
 
 fun ImageView.loadImage(imageUrl: String) {
     if (context is Activity) {
