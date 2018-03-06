@@ -50,7 +50,7 @@ class DataFlowTest {
 
         `when`(api.getNews(Category.NEW.toString().toLowerCase())).thenReturn(getSuccessResponse())
 
-        viewModel.getNews()
+        viewModel.loadNews()
 
         assertNull(viewModel.error.value)
         val item = viewModel.items.value?.first() as News
@@ -64,7 +64,7 @@ class DataFlowTest {
     fun test_the_API_error_response() {
 
         `when`(api.getNews(Category.NEW.toString().toLowerCase())).thenReturn(getErrorResponse())
-        viewModel.getNews()
+        viewModel.loadNews()
 
         assertNull(viewModel.items.value)
         assertNotNull(viewModel.error.value)

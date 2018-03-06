@@ -1,7 +1,7 @@
 package br.com.ladoleste.simpleredditclient.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
-import br.com.ladoleste.simpleredditclient.api.Retrofit
+import br.com.ladoleste.simpleredditclient.api.RetrofitConfig
 import br.com.ladoleste.simpleredditclient.dto.Comments
 import br.com.ladoleste.simpleredditclient.dto.News
 import br.com.ladoleste.simpleredditclient.model.Api
@@ -9,7 +9,7 @@ import br.com.ladoleste.simpleredditclient.model.Api
 /**
  *Created by Anderson on 14/02/2018.
  */
-class CommentsViewModel(private val api: Api = Retrofit.getApi()) : BaseViewModel() {
+class CommentsViewModel(private val api: Api = RetrofitConfig.getApi) : BaseViewModel() {
 
     val news = MutableLiveData<News>()
     val comments = MutableLiveData<List<Comments>>()

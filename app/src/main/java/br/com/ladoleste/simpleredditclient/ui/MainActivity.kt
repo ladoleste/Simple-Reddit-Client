@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), ItemClick {
         setSupportActionBar(toolbar)
         supportActionBar?.title = "${getString(R.string.app_title)} [${model.category}]"
         swiperefresh.setOnRefreshListener {
-            model.getNews(true)
+            model.loadNews(true)
         }
 
         model.items.observe(this, Observer<List<NewsItem>> {
@@ -64,11 +64,11 @@ class MainActivity : AppCompatActivity(), ItemClick {
             swiperefresh.isRefreshing = false
             loading.visibility = View.GONE
             Snackbar.make(root_view, getErrorMessage(it), Snackbar.LENGTH_INDEFINITE)
-                    .setAction(R.string.retry) { loading.visibility = View.VISIBLE; model.getNews() }
+                    .setAction(R.string.retry) { loading.visibility = View.VISIBLE; model.loadNews() }
                     .show()
         })
 
-        model.getNews()
+        model.loadNews()
     }
 
     override fun onDestroy() {
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(), ItemClick {
         }
 
         loading.visibility = View.VISIBLE
-        model.getNews(true)
+        model.loadNews(true)
 
         return true
     }
@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity(), ItemClick {
     private val rvListing by lazy {
         val linearLayoutManager = LinearLayoutManager(this)
         rv_listing.layoutManager = linearLayoutManager
-        loadingScrollListener = LoadingScrollListener({ model.getNews() }, linearLayoutManager)
+        loadingScrollListener = LoadingScrollListener({ model.loadNews() }, linearLayoutManager)
         rv_listing
     }
 }

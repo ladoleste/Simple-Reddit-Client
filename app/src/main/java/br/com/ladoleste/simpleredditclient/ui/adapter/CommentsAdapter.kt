@@ -1,6 +1,5 @@
 package br.com.ladoleste.simpleredditclient.ui.adapter
 
-import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +14,6 @@ class CommentsAdapter(private var items: List<Comments>) : RecyclerView.Adapter<
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent.inflate(R.layout.item_comments))
 
-    @SuppressLint("SetTextI18n")
-    @Suppress("UNCHECKED_CAST")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         BinderAdapterComments.bind(holder, items[position])
     }

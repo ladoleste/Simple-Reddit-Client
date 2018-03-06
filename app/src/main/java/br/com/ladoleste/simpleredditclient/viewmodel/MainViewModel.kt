@@ -1,7 +1,7 @@
 package br.com.ladoleste.simpleredditclient.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
-import br.com.ladoleste.simpleredditclient.api.Retrofit
+import br.com.ladoleste.simpleredditclient.api.RetrofitConfig.getApi
 import br.com.ladoleste.simpleredditclient.app.Category
 import br.com.ladoleste.simpleredditclient.app.NewsItem
 import br.com.ladoleste.simpleredditclient.model.Api
@@ -10,7 +10,7 @@ import br.com.ladoleste.simpleredditclient.ui.adapter.AdapterConstants
 /**
  *Created by Anderson on 14/02/2018.
  */
-class MainViewModel(private val api: Api = Retrofit.getApi()) : BaseViewModel() {
+class MainViewModel(private val api: Api = getApi) : BaseViewModel() {
 
     val items = MutableLiveData<List<NewsItem>>()
     val error = MutableLiveData<Throwable>()
@@ -23,7 +23,7 @@ class MainViewModel(private val api: Api = Retrofit.getApi()) : BaseViewModel() 
             get() = AdapterConstants.LOADING_ITEM
     }
 
-    fun getNews(refresh: Boolean = false) {
+    fun loadNews(refresh: Boolean = false) {
         if (refresh) {
             lastAfter = ""
         }
