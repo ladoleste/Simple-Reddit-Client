@@ -42,8 +42,8 @@ object Util {
         return builder.toString().substring(indice)
     }
 
-    fun getBitmapFromVectorDrawable(@DrawableRes drawableId: Int): Bitmap {
-        var drawable: Drawable = AppCompatResources.getDrawable(CustomApplication.instance, drawableId)!!
+    fun getBitmapFromVectorDrawable(@DrawableRes drawableId: Int, context: Context): Bitmap {
+        var drawable: Drawable = AppCompatResources.getDrawable(context, drawableId)!!
         drawable = DrawableCompat.wrap(drawable).mutate()
         val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)

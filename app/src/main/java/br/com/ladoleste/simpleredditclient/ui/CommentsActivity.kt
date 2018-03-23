@@ -104,7 +104,7 @@ class CommentsActivity : AppCompatActivity() {
 
         model.getComments()
 
-        val backArrow = getBitmapFromVectorDrawable(R.drawable.ic_arrow_back_white)
+        val backArrow = getBitmapFromVectorDrawable(R.drawable.ic_arrow_back_white, this)
 
         customTabsIntent = CustomTabsIntent.Builder()
                 .addDefaultShareMenuItem()

@@ -3,6 +3,10 @@ package br.com.ladoleste.simpleredditclient.common
 import android.app.Application
 import android.graphics.drawable.Drawable
 import br.com.ladoleste.simpleredditclient.BuildConfig
+import br.com.ladoleste.simpleredditclient.dagger.DaggerMyAppComponent
+import br.com.ladoleste.simpleredditclient.dagger.MyAppComponent
+import br.com.ladoleste.simpleredditclient.dagger.MyAppContextModule
+import br.com.ladoleste.simpleredditclient.dagger.MyAppModule
 import com.facebook.stetho.Stetho
 import timber.log.Timber
 
@@ -11,11 +15,11 @@ class CustomApplication : Application() {
 
     companion object {
 
+        lateinit var component: MyAppComponent
+            private set
+
         //used for the transitions activity animation
         var drawableHolder: Drawable? = null
-
-        lateinit var instance: CustomApplication
-            private set
 
         var apiUrl: String = BuildConfig.API_URL
     }
@@ -24,6 +28,10 @@ class CustomApplication : Application() {
         super.onCreate()
         Stetho.initializeWithDefaults(this)
         Timber.plant(SuperLog())
-        instance = this
+
+        component = DaggerMyAppComponent.builder()
+                .myAppModule(MyAppModule())
+                .myAppContextModule(MyAppContextModule(this))
+                .build()
     }
 }
