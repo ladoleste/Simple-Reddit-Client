@@ -1,4 +1,4 @@
-package br.com.ladoleste.simpleredditclient.app
+package br.com.ladoleste.simpleredditclient.common
 
 import android.app.Application
 import android.graphics.drawable.Drawable

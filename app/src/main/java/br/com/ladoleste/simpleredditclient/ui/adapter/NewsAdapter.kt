@@ -4,8 +4,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import br.com.ladoleste.simpleredditclient.R
-import br.com.ladoleste.simpleredditclient.app.NewsItem
-import br.com.ladoleste.simpleredditclient.app.inflate
+import br.com.ladoleste.simpleredditclient.common.NewsItem
+import br.com.ladoleste.simpleredditclient.common.inflate
 import br.com.ladoleste.simpleredditclient.dto.News
 import br.com.ladoleste.simpleredditclient.ui.ItemClick
 import br.com.ladoleste.simpleredditclient.ui.adapter.AdapterConstants.LOADING_ITEM

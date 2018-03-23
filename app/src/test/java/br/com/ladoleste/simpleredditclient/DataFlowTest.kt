@@ -2,7 +2,7 @@ package br.com.ladoleste.simpleredditclient
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.ladoleste.simpleredditclient.Helpers.Companion.readFile
-import br.com.ladoleste.simpleredditclient.app.Category
+import br.com.ladoleste.simpleredditclient.common.Category
 import br.com.ladoleste.simpleredditclient.dto.News
 import br.com.ladoleste.simpleredditclient.dto.Thing
 import br.com.ladoleste.simpleredditclient.model.Api
@@ -70,7 +70,7 @@ class DataFlowTest {
         assertNotNull(viewModel.error.value)
     }
 
-    private fun getSuccessResponse(): Single<Thing>? {
+    private fun getSuccessResponse(): Single<Thing> {
         return Single.just(Gson().fromJson(readFile(), Thing::class.java))
     }
 

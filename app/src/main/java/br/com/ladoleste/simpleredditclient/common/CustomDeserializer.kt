@@ -1,4 +1,4 @@
-package br.com.ladoleste.simpleredditclient.app
+package br.com.ladoleste.simpleredditclient.common
 
 import br.com.ladoleste.simpleredditclient.dto.Thing
 import com.google.gson.Gson

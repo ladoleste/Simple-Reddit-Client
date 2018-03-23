@@ -13,9 +13,9 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import br.com.ladoleste.simpleredditclient.R
-import br.com.ladoleste.simpleredditclient.app.Category
-import br.com.ladoleste.simpleredditclient.app.NewsItem
-import br.com.ladoleste.simpleredditclient.app.Util.X.getErrorMessage
+import br.com.ladoleste.simpleredditclient.common.Category
+import br.com.ladoleste.simpleredditclient.common.NewsItem
+import br.com.ladoleste.simpleredditclient.common.Util.getErrorMessage
 import br.com.ladoleste.simpleredditclient.ui.adapter.NewsAdapter
 import br.com.ladoleste.simpleredditclient.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*

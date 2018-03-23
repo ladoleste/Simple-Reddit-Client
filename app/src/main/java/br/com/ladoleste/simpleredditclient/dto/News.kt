@@ -1,7 +1,7 @@
 package br.com.ladoleste.simpleredditclient.dto
 
 import android.webkit.URLUtil
-import br.com.ladoleste.simpleredditclient.app.NewsItem
+import br.com.ladoleste.simpleredditclient.common.NewsItem
 import br.com.ladoleste.simpleredditclient.dto.linkp.Preview
 import br.com.ladoleste.simpleredditclient.ui.adapter.AdapterConstants
 

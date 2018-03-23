@@ -2,8 +2,8 @@ package br.com.ladoleste.simpleredditclient.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
 import br.com.ladoleste.simpleredditclient.api.RetrofitConfig.getApi
-import br.com.ladoleste.simpleredditclient.app.Category
-import br.com.ladoleste.simpleredditclient.app.NewsItem
+import br.com.ladoleste.simpleredditclient.common.Category
+import br.com.ladoleste.simpleredditclient.common.NewsItem
 import br.com.ladoleste.simpleredditclient.model.Api
 import br.com.ladoleste.simpleredditclient.ui.adapter.AdapterConstants
 

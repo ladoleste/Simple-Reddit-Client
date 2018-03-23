@@ -8,7 +8,6 @@ class LoadingScrollListener(
         private val func: () -> Unit,
         private val layoutManager: LinearLayoutManager) : RecyclerView.OnScrollListener() {
 
-    private var previousTotal = 0
     var loading = true
     private var visibleThreshold = 2
     private var firstVisibleItem = 0
@@ -22,13 +21,6 @@ class LoadingScrollListener(
             visibleItemCount = recyclerView.childCount
             totalItemCount = layoutManager.itemCount
             firstVisibleItem = layoutManager.findFirstVisibleItemPosition()
-
-//            if (loading) {
-//                if (totalItemCount != previousTotal) {
-//                    loading = false
-//                    previousTotal = totalItemCount
-//                }
-//            }
 
             if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
                 // End has been reached

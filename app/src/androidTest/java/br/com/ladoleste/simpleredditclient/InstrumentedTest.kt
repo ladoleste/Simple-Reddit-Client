@@ -10,8 +10,8 @@ import android.support.test.espresso.contrib.RecyclerViewActions
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import br.com.ladoleste.simpleredditclient.app.CustomApplication.Companion.apiUrl
-import br.com.ladoleste.simpleredditclient.app.Util
+import br.com.ladoleste.simpleredditclient.common.CustomApplication.Companion.apiUrl
+import br.com.ladoleste.simpleredditclient.common.Util
 import br.com.ladoleste.simpleredditclient.ui.MainActivity
 import br.com.ladoleste.simpleredditclient.ui.adapter.NewsAdapter
 import okhttp3.mockwebserver.MockResponse

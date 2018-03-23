@@ -1,4 +1,4 @@
-package br.com.ladoleste.simpleredditclient.app
+package br.com.ladoleste.simpleredditclient.common
 
 /**
  * Created by ladol on 21/02/2018

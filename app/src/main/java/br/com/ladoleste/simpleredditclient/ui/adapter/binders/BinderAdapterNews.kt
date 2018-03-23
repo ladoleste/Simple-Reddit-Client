@@ -3,9 +3,9 @@ package br.com.ladoleste.simpleredditclient.ui.adapter.binders
 import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import br.com.ladoleste.simpleredditclient.app.CustomApplication.Companion.drawableHolder
-import br.com.ladoleste.simpleredditclient.app.loadImage
-import br.com.ladoleste.simpleredditclient.app.toFriendlyTime
+import br.com.ladoleste.simpleredditclient.common.CustomApplication.Companion.drawableHolder
+import br.com.ladoleste.simpleredditclient.common.loadImage
+import br.com.ladoleste.simpleredditclient.common.toFriendlyTime
 import br.com.ladoleste.simpleredditclient.dto.News
 import br.com.ladoleste.simpleredditclient.ui.ItemClick
 import br.com.ladoleste.simpleredditclient.ui.adapter.getCommentsText
