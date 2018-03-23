@@ -22,7 +22,7 @@ import javax.inject.Singleton
  * Created by Anderson on 21/03/2018
  */
 @Module
-class MyAppModule {
+class NetworkModule {
 
     @Provides
     @Singleton

@@ -10,8 +10,8 @@ import javax.inject.Singleton
  */
 
 @Singleton
-@Component(modules = [(MyAppModule::class), (MyAppContextModule::class)])
-interface MyAppComponent {
+@Component(modules = [(NetworkModule::class)])
+interface MainComponent {
     fun inject(target: MainViewModel)
     fun inject(target: CommentsViewModel)
 }
