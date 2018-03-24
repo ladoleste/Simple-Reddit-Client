@@ -1,16 +1,24 @@
 package br.com.ladoleste.simpleredditclient.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
-import br.com.ladoleste.simpleredditclient.api.RetrofitConfig.getApi
 import br.com.ladoleste.simpleredditclient.common.Category
+import br.com.ladoleste.simpleredditclient.common.CustomApplication
 import br.com.ladoleste.simpleredditclient.common.NewsItem
 import br.com.ladoleste.simpleredditclient.model.Api
 import br.com.ladoleste.simpleredditclient.ui.adapter.AdapterConstants
+import javax.inject.Inject
 
 /**
  *Created by Anderson on 14/02/2018.
  */
-class MainViewModel(private val api: Api = getApi) : BaseViewModel() {
+class MainViewModel : BaseViewModel() {
+
+    @Inject
+    lateinit var api: Api
+
+    init {
+        CustomApplication.component.inject(this)
+    }
 
     val items = MutableLiveData<List<NewsItem>>()
     val error = MutableLiveData<Throwable>()

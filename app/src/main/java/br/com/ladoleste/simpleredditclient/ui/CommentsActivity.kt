@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.support.customtabs.CustomTabsIntent
 import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
@@ -77,7 +76,7 @@ class CommentsActivity : AppCompatActivity() {
                         tv_text.text = selftextHtml?.toHtml()
                     } else {
                         if (preview != null) {
-                            Handler().postDelayed({ image_view.loadImage(preview.images.first().source.url) }, 500)
+                            image_view.loadImage(preview.images.first().source.url)
                         }
                     }
                     tv_num_comments.text = getCommentsText(numComments)
@@ -102,9 +101,7 @@ class CommentsActivity : AppCompatActivity() {
                     .show()
         })
 
-        model.getComments()
-
-        val backArrow = getBitmapFromVectorDrawable(R.drawable.ic_arrow_back_white)
+        val backArrow = getBitmapFromVectorDrawable(R.drawable.ic_arrow_back_white, this)
 
         customTabsIntent = CustomTabsIntent.Builder()
                 .addDefaultShareMenuItem()
@@ -114,6 +111,11 @@ class CommentsActivity : AppCompatActivity() {
                 .setStartAnimations(this@CommentsActivity, R.anim.slide_in_right, R.anim.slide_out_left)
                 .setExitAnimations(this@CommentsActivity, R.anim.slide_in_left, R.anim.slide_out_right)
                 .build()
+    }
+
+    override fun onEnterAnimationComplete() {
+        super.onEnterAnimationComplete()
+        model.getComments()
     }
 
     override fun onBackPressed() {
@@ -132,7 +134,7 @@ class CommentsActivity : AppCompatActivity() {
             R.id.share -> {
                 val sendIntent = Intent()
                 sendIntent.action = Intent.ACTION_SEND
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://www.reddit.com" + shareLink)
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://www.reddit.com$shareLink")
                 sendIntent.type = "text/plain"
                 startActivity(sendIntent)
             }
