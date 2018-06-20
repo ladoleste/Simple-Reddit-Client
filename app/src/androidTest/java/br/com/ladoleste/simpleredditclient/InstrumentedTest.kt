@@ -1,6 +1,7 @@
 package br.com.ladoleste.simpleredditclient
 
 import android.content.Intent
+import android.os.SystemClock
 import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
@@ -56,6 +57,8 @@ class InstrumentedTest {
 
         onView(withId(R.id.rv_listing))
                 .perform(swipeUp())
+
+        SystemClock.sleep(500)
 
         onView(withId(R.id.rv_listing))
                 .perform(RecyclerViewActions.actionOnItemAtPosition<NewsAdapter.ViewHolder>(14, click()))

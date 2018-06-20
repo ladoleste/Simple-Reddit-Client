@@ -39,7 +39,7 @@ class DataFlowTest {
 
     @Before
     fun setUp() {
-        viewModel = MainViewModel(api)
+        viewModel = MainViewModel()
     }
 
     /**
